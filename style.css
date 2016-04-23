@@ -1,0 +1,45 @@
+.success-bar-wrapper {
+  position: relative;
+  background-color: #2199E8;
+  height: 20px;
+  width: 100%;
+}
+
+.success-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: lightgray;
+  height: 20px;
+}
+
+h1 {
+  font-size: 1.6rem!important;
+}
+
+h2 {
+  font-size: 1.2rem!important;
+}
+
+.project {
+  padding-top: 1em;
+}
+¹
+.project:not(:last-child) {
+  padding-bottom: 2em;
+  border-bottom: 1px solid lightgray;
+}
+
+
+#project {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 50vh;
+  background-color: white;
+  border-left: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 1rem;
+}
