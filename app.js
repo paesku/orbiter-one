@@ -29,12 +29,6 @@
     document.querySelector('#projects').addEventListener('click', prepareDetails);
   }
 
-  function test(e) {
-    console.log();
-    console.log(e.target);
-
-  }
-
   function apiRequest() {
     var limit = limitQuery.options[limitQuery.selectedIndex].value || 10;
     var defaultQuery = {
