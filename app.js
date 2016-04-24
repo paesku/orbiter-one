@@ -131,15 +131,18 @@
     if (!isVisible && close) {
       project.classList.remove(showClass);
       project.classList.add(hideClass);
+      document.querySelector('#project').removeEventListener('click', animateListener);
     } else if (isVisible) {
       project.classList.remove(hideClass);
       project.classList.add(showClass);
+      document.querySelector('#project').addEventListener('click', animateListener);
+    }
+  }
 
-      document.querySelector('#project').addEventListener('click', function(e) {
-        if (e.target && e.target.nodeName.toLowerCase() == 'button') {
-          animateDetails(true);
-        }
-      });
+
+  function animateListener(e) {
+    if (e.target && e.target.nodeName.toLowerCase() == 'button') {
+      animateDetails(true);
     }
   }
 

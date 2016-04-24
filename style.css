@@ -2,6 +2,12 @@ body {
   font-size: 14px;
 }
 
+.header {
+  padding-top: 1em;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid lightgray;
+}
+
 .success-bar-wrapper {
   position: relative;
   background-color: #2199E8;
@@ -11,6 +17,7 @@ body {
   padding-left: .5em;
   font-size: .9em;
   font-weight: bold;
+  box-shadow: 1px 1px 2px 0 rgba(200, 200, 200, 0.8);
 }
 
 .success-bar {
@@ -18,7 +25,7 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: lightgray;
+  background-color: #f1f1f1;
   height: 20px;
 }
 
