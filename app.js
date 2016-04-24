@@ -94,9 +94,20 @@
 
   function renderProject (blankResponse, name) {
     var data = JSON.parse(blankResponse);
+    console.log(data);
     data.nameId = name;
     if (data['Next Pass'].date_iso) {
       data.launch = formatDate(data['Next Pass'].date_iso);
+    }
+
+    if (data['Close Approaches']) {
+      var array = data['Close Approaches'];
+      data.upcomingEvents = [];
+
+      for (var i = 0; i < array.length; i++) {
+        var futureEvent = formatDate(array[i].date_iso);
+        data.upcomingEvents.push(futureEvent);
+      }
     }
     project.innerHTML = Mustache.render(projectTmpl, data);
   }

@@ -37,6 +37,10 @@ h2 {
   font-size: 1.2rem!important;
 }
 
+h4 {
+  font-size: 1rem!important;
+}
+
 .project {
   padding-top: 1em;
   padding-bottom: 1em;
@@ -69,6 +73,7 @@ h2 {
   box-shadow: -1px 0 1px 0 rgba(200, 200, 200, 0.5);;
   padding: 1rem;
   transform: translateX(100%);
+  overflow-y: auto;
 }
 
 .slide-in {

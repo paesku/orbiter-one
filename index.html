@@ -33,8 +33,14 @@
           </div>
           <div>
             <h5>{{nameId}}</h5>
-            <p>Mission will start on:</p>
-            {{launch}}
+            <p>Next Mission will start on: <br>
+            {{launch}}</p>
+            <h4>Upcoming Missions:</h4>
+            <ul class="no-bullet">
+              {{#upcomingEvents}}
+              <li>{{.}}</li>
+              {{/upcomingEvents}}
+            </ul>
           </div>
         </script>
       </div>
@@ -51,7 +57,7 @@
                 Last Observations: {{ last_obs }}<br>
                 Observations: {{ n_obs_used }}</p>
                 <p>Take part to this mission with a Total Profit of <em>{{ profit }} $</em>.</p>
-                <button id="{{ prov_des }}" class="button primary hollow js-detail-modal">Invest !</button>
+                <button id="{{ prov_des }}" class="button primary hollow small">Invest !</button>
                 <h2>Chance of success:</h2>
                 <div class="success-bar-wrapper">
                   <span class="success-bar" style="left: {{ risk }}%;"></span><span> {{risk}} %</span>
