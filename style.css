@@ -1,8 +1,16 @@
+body {
+  font-size: 14px;
+}
+
 .success-bar-wrapper {
   position: relative;
   background-color: #2199E8;
   height: 20px;
   width: 100%;
+  color: white;
+  padding-left: .5em;
+  font-size: .9em;
+  font-weight: bold;
 }
 
 .success-bar {
@@ -24,11 +32,22 @@ h2 {
 
 .project {
   padding-top: 1em;
+  padding-bottom: 1em;
 }
-¹
+.project .small-12 {
+  border-bottom: 1px solid lightgray;
+}
+
+.project .medium-8 {
+  border-bottom: 1px solid lightgray;
+}
+
+.project .column {
+  padding-bottom: 2em;
+}
+
 .project:not(:last-child) {
   padding-bottom: 2em;
-  border-bottom: 1px solid lightgray;
 }
 
 
@@ -37,9 +56,27 @@ h2 {
   top: 0;
   right: 0;
   width: 300px;
-  height: 50vh;
+  height: 100vh;
   background-color: white;
-  border-left: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+  box-shadow: -1px 0 1px 0 rgba(200, 200, 200, 0.5);;
   padding: 1rem;
+  transform: translateX(100%);
+}
+
+.slide-in {
+ animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+ animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+ 100% { transform: translateX(0%); }
+}
+
+@keyframes slide-out {
+ 0% { transform: translateX(0%); }
+ 100% { transform: translateX(100%); }
 }

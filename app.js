@@ -20,9 +20,14 @@
   var project = document.getElementById('project');
   var projectTmpl = document.getElementById('project-template').innerHTML;
 
-  apiRequest();
+  init();
 
-  searchBtn.addEventListener('click', queryApi);
+  function init() {
+    apiRequest();
+
+    searchBtn.addEventListener('click', queryApi);
+    document.querySelector('#projects').addEventListener('click', prepareDetails);
+  }
 
   function queryApi() {
     var input = document.getElementById('limit');
@@ -85,13 +90,14 @@
 
   function renderProjects (data) {
     projects.innerHTML = Mustache.render(projectsTmpl, data);
-    document.querySelector('#projects').addEventListener('click', prepareDetails);
   }
 
   function renderProject (blankResponse, name) {
     var data = JSON.parse(blankResponse);
     data.nameId = name;
-    data.launch = formatDate(data['Next Pass'].date_iso);
+    if (data['Next Pass'].date_iso) {
+      data.launch = formatDate(data['Next Pass'].date_iso);
+    }
     project.innerHTML = Mustache.render(projectTmpl, data);
   }
 
@@ -105,12 +111,36 @@
     e.preventDefault;
     if (e.target && e.target.nodeName.toLowerCase() == 'button') {
       var target = e.target.id;
-      apiRequestDetail(target)
+      animateDetails();
+      apiRequestDetail(target);
     }
   }
 
   function calculateRisk(data) {
     return Math.floor(Math.random() * 100) + 1;
+  }
+
+  function animateDetails(close) {
+
+    var hideClass = 'slide-out';
+    var showClass = 'slide-in';
+    var visible = new RegExp('\\b' + showClass + '\\b');
+    var hidden = new RegExp('\\b' + hideClass + '\\b');
+    var isVisible = project.className.match(hidden);
+
+    if (!isVisible && close) {
+      project.classList.remove(showClass);
+      project.classList.add(hideClass);
+    } else if (isVisible) {
+      project.classList.remove(hideClass);
+      project.classList.add(showClass);
+
+      document.querySelector('#project').addEventListener('click', function(e) {
+        if (e.target && e.target.nodeName.toLowerCase() == 'button') {
+          animateDetails(true);
+        }
+      });
+    }
   }
 
 })(this);
