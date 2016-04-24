@@ -74,7 +74,6 @@
   function buildRenderData(blankResponse){
     var orbits = [];
     var result = JSON.parse(blankResponse);
-    console.log(result);
     for (var i = 0; i < result.length; i++) {
       var o = result[i];
       o.last_obs = formatDate(o.last_obs);
@@ -108,7 +107,6 @@
 
   function renderProject (blankResponse, name) {
     var data = JSON.parse(blankResponse);
-    console.log(data);
     data.nameId = name;
     if (data['Next Pass'].date_iso) {
       data.launch = formatDate(data['Next Pass'].date_iso);
