@@ -8,8 +8,9 @@
   </head>
   <body>
     <div class="row">
-      <div class="small-12 medium-8 medium-offset-2 column">
+      <div class="small-12 medium-10 medium-offset-1 column">
         <div class="header">
+          <span class="logo"></span>
           <h1>Minor Planet Funding Platform</h1>
         </div>
         <div id="search">
@@ -44,28 +45,38 @@
           </div>
         </script>
       </div>
-    <div class="small-12 medium-8 medium-offset-2 column">
+    <div class="small-12 medium-10 medium-offset-1 column">
       <div id="projects">
         <script id="projects-template" type="text/template">
           <div  class="projects">
-            <h1>Projects</h1>
+            <h1>Upcomming Missions:</h1>
             {{#orbits}}
-            <div class="project row">
-              <div class="small-12 medium-8 column">
-                <h1>{{ full_name }}</h1>
-                <p>First Observations: {{ first_obs }}<br>
-                Last Observations: {{ last_obs }}<br>
-                Observations: {{ n_obs_used }}</p>
-                <p>Take part to this mission with a Total Profit of <em>{{ profit }} $</em>.</p>
-                <button id="{{ prov_des }}" class="button primary hollow small">Invest !</button>
-                <h2>Chance of success:</h2>
-                <div class="success-bar-wrapper">
-                  <span class="success-bar" style="left: {{ risk }}%;"></span><span> {{risk}} %</span>
-                </div>
-              </div>
-              <div class="small-12 medium-4 column">
-                  <div style="border-radius: 50%; border: 2px solid red; height: 200px; width: 200px;">
+            <div class="project ">
+              <h1 class="subheader">{{ full_name }}</h1>
+              <div class="row">
+                <div class="small-12 medium-6 column">
+                  <p>First Observations: {{ first_obs }}<br>
+                  Last Observations: {{ last_obs }}<br>
+                  Observations: {{ n_obs_used }}</p>
+                  <p>Take part to this mission with a Total Profit of <em>{{ profit }} $</em>.</p>
+                  <button id="{{ prov_des }}" class="button primary hollow small">Invest !</button>
+                  <h2>Chance of success:</h2>
+                  <div class="success-bar-wrapper">
+                    <span class="success-bar" style="left: {{ risk }}%;"></span><span> {{risk}} %</span>
                   </div>
+                </div>
+                <div class="small-12 medium-6 column">
+                  <div class="image-wrapper">
+                    <div class="orbit" style="background-image: url('orbits/{{ pdes }}.png');"></div>
+                    <div class="decent">No data available</div>
+                  </div>
+                  <p class="legend">Orbit of {{full_name}}</p>
+                  <div class="image-wrapper">
+                    <div class="orbit" style="background-image: url('spectra/{{ spectra }}.png');"></div>
+                    <div class="decent">No data available</div>
+                  </div>
+                  <p class="legend">Spectrum of {{full_name}}</p>
+                </div>
               </div>
             </div>
             {{/orbits}}

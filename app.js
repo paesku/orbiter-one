@@ -74,18 +74,32 @@
   function buildRenderData(blankResponse){
     var orbits = [];
     var result = JSON.parse(blankResponse);
-
+    console.log(result);
     for (var i = 0; i < result.length; i++) {
       var o = result[i];
       o.last_obs = formatDate(o.last_obs);
       o.first_obs = formatDate(o.first_obs);
       o.risk = calculateRisk(o);
+      o.spectra = spectraName(o.pdes)
       orbits.push(result[i]);
     }
 
     return {
       orbits: orbits
     }
+  }
+
+  function spectraName(pdes) {
+      if (typeof pdes === 'number') {
+        var x =  1000000 + pdes;
+        var suffix = '_0';
+
+        x = x.toString().concat(suffix);
+        return x.substring(1);
+      } else {
+
+        return;
+      }
   }
 
   function renderProjects (data) {
