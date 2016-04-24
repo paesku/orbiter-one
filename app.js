@@ -12,11 +12,11 @@
 
   var data = null;
 
-  var searchBtn = document.getElementById('search');
+  var limitQuery = document.getElementById('top-list');
+
   var projects = document.getElementById('projects');
   var projectsTmpl = document.getElementById('projects-template').innerHTML;
 
-  var detailBtn = document.querySelectorAll('js-detail-modal');
   var project = document.getElementById('project');
   var projectTmpl = document.getElementById('project-template').innerHTML;
 
@@ -25,17 +25,18 @@
   function init() {
     apiRequest();
 
-    searchBtn.addEventListener('click', queryApi);
+    limitQuery.addEventListener('change', apiRequest);
     document.querySelector('#projects').addEventListener('click', prepareDetails);
   }
 
-  function queryApi() {
-    var input = document.getElementById('limit');
-    apiRequest(input.value);
+  function test(e) {
+    console.log();
+    console.log(e.target);
+
   }
 
-  function apiRequest(length) {
-    var limit = length || 10;
+  function apiRequest() {
+    var limit = limitQuery.options[limitQuery.selectedIndex].value || 10;
     var defaultQuery = {
       'price':
         {'$gt': 1}
