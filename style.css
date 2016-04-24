@@ -145,3 +145,20 @@ h4 {
   color: gray;
   font-size: 0.9em;
 }
+
+#svg-orbit {
+  animation-name: rotate-orbits;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 32px 32px;
+  animation-timing-function: cubic-bezier(.8, .8, .8, .5);
+}
+
+@keyframes rotate-orbits {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
